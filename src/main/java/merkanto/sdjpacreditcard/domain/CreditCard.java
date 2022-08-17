@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import merkanto.sdjpacreditcard.interceptors.EncryptedString;
 
 @Entity
+@EntityListeners(CreditCardJPACallback.class)
 public class CreditCard {
 
     @Id
