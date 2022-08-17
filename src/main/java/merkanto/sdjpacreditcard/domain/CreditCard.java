@@ -4,14 +4,15 @@ import jakarta.persistence.*;
 import merkanto.sdjpacreditcard.interceptors.EncryptedString;
 
 @Entity
-@EntityListeners(CreditCardJPACallback.class)
+//@EntityListeners(CreditCardJPACallback.class)
 public class CreditCard {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @EncryptedString
+//    @EncryptedString
+    @Convert(converter = CreditCardConverter.class)
     private String creditCardNumber;
 
     private String cvv;
