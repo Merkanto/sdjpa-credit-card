@@ -1,9 +1,6 @@
 package merkanto.sdjpacreditcard.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import merkanto.sdjpacreditcard.interceptors.EncryptedString;
 
 @Entity
@@ -50,5 +47,10 @@ public class CreditCard {
 
     public void setExpirationDate(String expirationDate) {
         this.expirationDate = expirationDate;
+    }
+
+    @PrePersist
+    public void prePersistCallback() {
+        System.out.println("JPA PrePersist Callback was called");
     }
 }
