@@ -39,10 +39,10 @@ class CreditCardRepositoryTest {
 
         CreditCard savedCC = creditCardRepository.saveAndFlush(creditCard);
 
-        System.out.println("Getting CC from DB: " + creditCard.getCreditCardNumber());
+        System.out.println("Getting CC from database: " + savedCC.getCreditCardNumber());
 
-        System.out.println("CC at Rest");
-        System.out.println("CC encrypted: " + encryptionService.encrypt(CREDIT_CARD));
+        System.out.println("CC At Rest");
+        System.out.println("CC Encrypted: " + encryptionService.encrypt(CREDIT_CARD));
 
         Map<String, Object> dbRow = jdbcTemplate.queryForMap("SELECT * FROM credit_card " +
                 "WHERE id = " + savedCC.getId());
